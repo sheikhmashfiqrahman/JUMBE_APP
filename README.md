@@ -148,11 +148,13 @@ heroku open --app <name-for-your-app>
 
 ### Next Steps for the Project
 - Setting up a front end using React and tailwind to provide a view.
-- Automating the testing process using one script
+- Automating the testing process using only one script.
 - Working on the modularity of the code like refactoring.
 - Depending on the services, a database can be integrated for storing user information.
-- Deploying the application using EC2 aws
-- 
+- Deploying the application using EC2 aws.
+- Using Docker compose to reflect the changes directly when running the container.
+- Integrating a CI/CD pipeline.
+  
 ### Author
 - Sheikh Rahman
 

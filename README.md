@@ -1,6 +1,6 @@
 ## Flask Jumble API
 
-The Flask Jumble API provides a simple service that jumbles words based on a given integer `1= <n =< 100`, which shifts each letter by `n` positions in the alphabet. This project is structured to be easily deployable using docker. A working backend has been deployed on heroku. The backend has been created using Flask [Jumble Web API](https://japi-dd84663b4b52.herokuapp.com/) 
+The Flask Jumble API provides a simple service that jumbles words based on a given integer `1= <n =< 100`, which shifts each letter by `n` positions in the alphabet. This project is structured in a way that can be deployed effectively using Docker an heroku. A working backend has been created using Flask [Jumble Web API](https://japi-dd84663b4b52.herokuapp.com/) 
 
 ## Folder/File structure: 
 
@@ -10,7 +10,7 @@ This file structure is created in a way that can be used for modularity in the f
 
 2. app.py initializes the Flask application. (Entry point)
 
-3. For testing the services a separate folder is located at [Test Folder](tests). The test is divided into unit testing, API testing and, limiter testing.(test_unit.py, test_api.py, test_limiter.py).
+3. For testing the services a separate folder is located at [Test Folder](tests). The test is divided into unit testing, API testing and, limiter testing.[Unit Test ](tests/test_unit.py) [API Test ](tests/test_api.py) [LIMITER Test ](tests/test_limiter.py)
 
 4. A Dockerfile is created for building the container for deployment.
 
@@ -21,7 +21,7 @@ This file structure is created in a way that can be used for modularity in the f
 - ```REST API to jumble words Q1 & Q2```: This is the main function of the api to shift/jumble the words when an int n is passed. The function is created inside the services.py. The services.py is being imported inside the routes. def api_jumble is responsible for handling the post method of the requested payload.
   
 - ```Basic Landing page```: This is a further implementation of the def api_jumble where users would be able to see a landing page after starting the server and html page will be rendered for inputting a string and the desired shift amount. E.g 
-Enter Text : <some-text> Shift Amount :<n>. After hitting the button jumble it!, users would be able to see the desire output.
+Enter Text : <some-text> Shift Amount :<n>. After hitting the button jumble it!, users would be able to see the desire output and also come back to the previous page for inputing another message.
 
 - ```Rate Limit on the API Q5```: A rate limiter has been added where users would not be able to make more 300 requests per minute. A limiter library has been used for configuration inside the route.py.
 
@@ -41,12 +41,12 @@ These instructions will get you a copy of the project up and running on your loc
 - pip (v - 24)
 - virtualenv (optional)
 - libraries are added inside the requirements.txt
-- If not use pip freeze requirements for checking the libraries used
+- If not, use pip freeze requirements for checking the libraries used
   
 - Install the dependencies:
 
 ```bash
-- pip install -r requirements.txt
+ pip install -r requirements.txt
 ```
 - To run the development server (from the root directory):
   
@@ -83,7 +83,7 @@ The following instructions are provided for creating a container inside docker.
 
 ### Prerequisites
 - install Docker
-
+- Check the [Dockerfile](Dockerfile) for setting up the docker build.
 - Build the image locally:
   
 ```bash
@@ -107,8 +107,9 @@ docker run -p 5000:5000 -d my-app
 The following instructions are provided to deploy the docker container onto heroku.
   
 ### Prerequisites
-- Sign up in heroku
 
+- Sign up in heroku
+    
 - Login using bash terminal:
 
 ```bash
@@ -121,7 +122,7 @@ It would open the browser and prompt you to log in with your Heroku credentials,
 ```bash
 heroku create <name-for-your-app>
 ```
-Place jumbleapp (japi in my case) or any name but follow the guideline. The guide will be shown in the promt
+Place jaas as your app name (japi in my case) or any name but follow the guideline. The guide will be shown in the promt
 
 - Push the container:
 
@@ -139,4 +140,19 @@ heroku container:release web --app <name-for-your-app>
 ```bash
 heroku open --app <name-for-your-app>
 ```
-#### CHECK [Jumble Web API](https://japi-dd84663b4b52.herokuapp.com/)
+#### Check [Jumble Web API](https://japi-dd84663b4b52.herokuapp.com/)
+
+### Built With
+- Flask
+- Flask-Limiter
+
+### Next Steps for the Project
+- Setting up a front end using React and tailwind to provide a view.
+- Automating the testing process using one script
+- Working on the modularity of the code like refactoring.
+- Depending on the services, a database can be integrated for storing user information.
+- Deploying the application using EC2 aws
+- 
+### Author
+- Sheikh Rahman
+

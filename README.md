@@ -1,6 +1,6 @@
 ## Flask Jumble API
 
-The Flask Jumble API provides a simple service that jumbles words based on a given integer `1= <n =< 100`, which shifts each letter by `n` positions in the alphabet. This project is structured in a way that can be deployed effectively using Docker an heroku. A working backend has been created using Flask [Jumble Web API](https://japi-dd84663b4b52.herokuapp.com/) 
+The Flask Jumble API provides a simple service that jumbles words based on a given integer `1= <n =< 100`, which shifts each letter by `n` positions in the alphabet. This project is structured in a way that can be deployed effectively using Docker and heroku. A working backend has been created using Flask [Jumble Web API](https://japi-dd84663b4b52.herokuapp.com/) 
 
 ## Folder/File structure: 
 

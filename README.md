@@ -31,7 +31,7 @@ Enter Text : <some-text> Shift Amount :<n>. After hitting the button jumble it!,
 
 ### Check [ApplicationScreenshot folder](Screenshots)
 
-- Inside the folder a snapshot of how the api work has been shown.
+- Inside the folder a snapshot of how the api works.
 
 ## Local setup and testing
 

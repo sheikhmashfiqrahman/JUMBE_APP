@@ -29,7 +29,7 @@ Enter Text : <some-text> Shift Amount :<n>. After hitting the button jumble it!,
   
 - ```Jumble Container Q4```: A docker container has been created for deploying it on heroku. Further implementation details can be found inside the Dockerfile.
 
-### Check [ApplicationScreenshot folder](screenshots)
+### Check [ApplicationScreenshot folder](Screenshots)
 
 ## Local setup and testing
 
@@ -68,14 +68,49 @@ pytest tests/<file-name>
 Replace file-name with test_unit.py, test_limiter.py, test_api.py
 
 - Curl can be used in a bash terminal to test the /api/jumble/{n} :
-   
+
+- For single request test
+  
 ```bash
 curl -X POST http://localhost:5000/api/jumble/2 \
      -H "Content-Type: application/json" \
      -d '{"message": "Hello World!"}'
 ```
+```bash
+Output: {
+  "jumbled": "Jgnnq Yqtnf"
+}
+```
 
-- Postman can be used as well for the api testing.
+- Testing Rate Limiting for 300 requests per minute
+- Run the following script inside the tests folder.
+```bash
+./test_api.sh
+```
+
+```bash
+Output:
+<html la<!doctype html>
+<html lang=en>
+<title>429 Too Many Requests</title>
+<h1>Too Many Requests</h1>
+<!doctype html>
+<html la<!doctype html>
+<html lang=en>
+<title>429 Too Many Requests</title>
+<h1>Too Many Requests</h1>
+<p>300 per 1 minute</p>
+```
+
+
+- Postman can be used as well for the API testing.
+
+```bash
+Go to the Headers tab and ensure there is a header with Key as Content-Type and Value as application/json.
+
+Under the Body tab, select raw and then choose JSON from the dropdown that adjusts the text input format. Postman usually automatically adds the correct Content-Type header when you select JSON as the body type.
+```
+
 
 ## Deployment Guide (Docker)
 
@@ -87,9 +122,9 @@ The following instructions are provided for creating a container inside docker.
 - Build the image locally:
   
 ```bash
-docker image build -t jumble-app .
+docker image build -t <my-app> .
 ```
-NOTE: Use bash terminal for running the commands as some commands might not work in a command promt or powershell
+NOTE: my-app can be any name for the image. Use bash terminal for running the commands as some commands might not work in a command promt or powershell
 
 - Verify if the image has been created locally:
 
@@ -99,8 +134,9 @@ docker image ls
 - Run the Docker Container:
 
 ```bash
-docker run -p 5000:5000 -d my-app
+docker run -p 5000:5000 -d <my-app>
 ```
+Note: Replace <my-app>
 
 ## Deployment Guide (Heroku)
 
@@ -148,7 +184,7 @@ heroku open --app <name-for-your-app>
 
 ### Next Steps for the Project
 - A minor bug for the test file needs to be fixed where the limiter has not been initialized properly inside the 
-  test_limiter.py. A server instance has been created to resolve the issue.
+  test_limiter.py. A bash [script](tests/test_api.sh) is created for testing the limiter.
 - Setting up a front end using React and tailwind to provide a view.
 - Automating the testing process using only one script.
 - Working on the modularity of the code like refactoring.

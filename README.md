@@ -189,7 +189,7 @@ heroku open --app <name-for-your-app>
   test_limiter.py. A bash [script](tests/test_api.sh) is created for testing the limiter.
 - Setting up a front end using React and tailwind to provide a view.
 - Automating the testing process using only one script.
-- Working on the modularity of the code like refactoring.
+- Working on the modularity of the code, using different template folder for rendering the html from the back end. (maybe use jinja2)
 - Depending on the services, a database can be integrated for storing user information.
 - Deploying the application using EC2 aws.
 - Using Docker-compose to reflect the changes directly when running the container.

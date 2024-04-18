@@ -60,7 +60,7 @@ def configure_routes(app):
                     </html>
                 """)
         else:
-            # Render form
+            # Render form [ get method]
             return render_template_string("""
                 <!DOCTYPE html>
                 <html lang="en">

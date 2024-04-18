@@ -31,6 +31,8 @@ Enter Text : <some-text> Shift Amount :<n>. After hitting the button jumble it!,
 
 ### Check [ApplicationScreenshot folder](Screenshots)
 
+- Inside the folder a snapshot of how the api work has been shown.
+
 ## Local setup and testing
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -158,7 +160,7 @@ It would open the browser and prompt you to log in with your Heroku credentials,
 ```bash
 heroku create <name-for-your-app>
 ```
-Place jaas as your app name (japi in my case) or any name but follow the guideline. The guide will be shown in the promt
+Place jaas as your app name (japi in my case) or any name but follow the guideline. The guide will be shown in the promt.
 
 - Push the container:
 

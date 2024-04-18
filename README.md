@@ -178,7 +178,7 @@ heroku container:release web --app <name-for-your-app>
 ```bash
 heroku open --app <name-for-your-app>
 ```
-#### Check [Jumble Web API](https://japi-dd84663b4b52.herokuapp.com/)
+#### Check Out [Jumble Web API](https://japi-dd84663b4b52.herokuapp.com/)
 
 ### Built With
 - Flask

@@ -1,3 +1,10 @@
+"""
+This module contains pytest tests for the `/api/jumble/{n}` endpoint of a Flask application.
+It tests the endpoint's response to different types of inputs, including valid data,
+empty messages, missing fields, non-JSON payloads, and large shift values.
+The Flask application is configured with rate limiting, testing settings, and custom routes.
+"""
+
 import pytest
 from app.services import jumble
 from flask import Flask

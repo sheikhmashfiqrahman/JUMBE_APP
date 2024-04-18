@@ -1,3 +1,9 @@
+"""
+This module sets up a pytest fixture with Flask-Limiter for rate limiting.
+This configuration includes testing-specific settings and applies routes from 'app.routes'.
+Designed to test the application's rate limiting and routing functionalities in an isolated environment.
+
+"""
 import pytest
 from flask import Flask
 from flask_limiter import Limiter
@@ -22,6 +28,7 @@ def app():
     # Apply the routes configuration
     configure_routes(app)
 
+    # Yield the app context for use in tests
     yield app
 
 @pytest.fixture
@@ -34,7 +41,7 @@ def test_rate_limit(client):
     for i in range(limit):
         response = client.post(url, json={"message": "hello"})
         assert response.status_code == 200
-# test        
+      
 def test_rate_limit_over(client):
     url = '/api/jumble/1'
     # slightly above to see the blocking

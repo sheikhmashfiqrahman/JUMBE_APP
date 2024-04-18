@@ -1,3 +1,15 @@
+"""
+This module configures the routes for the application that includes functionality for jumbling text.
+It provides two main endpoints:
+
+1. `/api/jumble/<int:n>`: A REST API that accepts POST requests to jumble provided text by a specified shift amount `n`.
+   This endpoint is rate-limited to 300 requests per minute to prevent abuse.
+
+2. `/`: A web interface that allows users to input text and a shift amount, which it then jumbles and displays on a response page.
+
+The application uses Flask-Limiter to enforce rate limits and ensure the API's robustness against high traffic and potential abuse.
+"""
+
 from flask import request, jsonify, request, render_template_string
 from .services import jumble
 from flask_limiter import Limiter
@@ -11,9 +23,11 @@ def configure_routes(app):
     @limiter.limit("300 per minute")
     def api_jumble(n):
         print("Headers:", request.headers)  
-        print("Body:", request.get_json())  
+        print("Body:", request.get_json())
+
         data = request.get_json()
         message = data.get('message', '')
+        
         if message:
             jumbled_message = jumble(message, n)
             return jsonify({"jumbled": jumbled_message})
